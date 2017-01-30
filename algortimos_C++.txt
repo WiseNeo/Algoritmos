@@ -1,0 +1,300 @@
+1.	¬Faça um programa em C++ que tenha dois métodos:
+•	Um que converta uma temperatura em Celsius para Fahrenheit;
+•	E outro que converta uma temperatura em Fahrenheit para Celsius.
+
+A aplicação deverá solicitar ao usuário o tipo da conversão e a temperatura a ser convertida. Em seguida, ela deverá imprimir a temperatura na escala escolhida.
+
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+//formula c = (f - 32)*5/9
+//formula f = (9/5)*c + 32
+
+float fah(float c)
+{
+    float f;
+    f = (9/5)*c + 32;
+    
+    return f; 
+}
+float cel(float f)
+{
+       float c;
+       c = (f - 32)*5/9;
+       
+       return c;
+}
+
+
+int main(int argc, char *argv[])
+{
+    float temp;
+    char x;
+    cout<<"Digite a sua temperatura: "<<endl;
+    cin>>temp;
+    cout<<"Esta em Celsius ou Fahrenheit?"<<endl;
+    cout<< "C - celsius e F - Fahrenheit"<<endl;
+    cin>>x;
+    switch (x){
+    case 'F || f':
+         cout<<"A temperatura "<<temp<<"F "<<"em Fahrenheit e :"<<endl;
+         cout<<cel(temp)<<" graus celsius"<<endl;
+    break;
+    case 'C || c':
+         cout<<"A temperatura "<<temp<<"C "<<" em graus celsius e :"<<endl;
+         cout<<fah(temp)<<" Fahrenheit"<<endl;
+     break;
+     default:
+             cout<<"Temperatura incorreta";
+             }       
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
+
+2.	Escreva um programa que solicite ao usuário dois números e imprima a soma dos quadrados dos números informados. A aplicação deverá ter uma função para realizar o cálculo do quadrado de um número e outra para somar dois números.
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+
+float dobro(int a)
+{
+ return a*a;
+}
+
+int soma(int a, int b)
+{
+ int res;
+     res = dobro(a) + dobro(b);
+
+ return res;
+}
+
+int main(int argc, char *argv[])
+{
+    int a, b;
+    
+    cout<<"Digite um numeros: "<<endl;
+    cin>>a;
+    cout<<"Digite outro numeros: "<<endl;
+    cin>>b;
+    dobro(a);
+    dobro(b);
+    cout<<"A soma do quadrado dos numeros: "<<endl;
+    cout<<soma(a,b);
+    
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
+
+
+3.	Faça um programa em C++ que contenha um método que retorne true se um número for ímpar e false se for par. O número deverá ser informado pelo usuário.
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+bool imparPar(int a)
+{
+     if (a % 2 == 0)
+     {
+           cout<<"par\n";
+           return false;
+     }else{
+           cout<<"impar\n";
+           return true;
+     
+     }
+
+}
+
+int main(int argc, char *argv[])
+{
+    int a;
+    
+    cout<<"digite um numero: "<<endl;
+    cin>>a;
+    cout<<imparPar(a);
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
+
+
+4. Escreva uma aplicação que contenha um método que retorne true se um ano for bissexto e false caso contrário. O ano deverá ser lido pelo teclado
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+//divisivel por 4
+//não divisivel por 100
+//divisivel por 400
+
+bool bissexto(int ano)
+{
+     if (ano % 400 == 0) { 
+          cout<<"Esse ano e bissexto\n";
+             return true;
+          
+          }else if ((ano % 4 == 0) && (ano % 100 != 0)){      
+             cout<<"Esse ano e bissexto\n";
+             return true;
+                    
+         
+        }else{
+              
+              return false;
+             }
+}
+
+int main(int argc, char *argv[])
+{
+    int ano;
+    cout<<"Digite um ano: \n";
+    cin>>ano;
+    cout<<bissexto(ano);
+    
+    
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
+
+
+5.	Faça um programa que solicite ao usuário dois valores e, após a digitação, o usuário deverá escolher uma das seguintes opções:
+•	(1) Multiplicação;
+•	(2) Adição;
+•	(3) Divisão;
+•	(4) Subtração;
+•	 (5) Finalizar Programa.
+Crie métodos para as opções de 1 a 4 e, de acordo FLOcom a escolha do usuário, invoque o método correspondente.
+
+
+
+
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+float mult (float A, float B){
+      return A * B;
+      
+      }
+
+float soma (float A, float B){
+      return A + B;
+      
+      }
+
+float div (float A, float B){
+      //if B != 0
+      return A / B;      
+      
+      }
+
+float sub (float A, float B){
+      return A - B;      
+      
+      }
+
+int main(int argc, char *argv[])
+{
+    int x;
+    float H, T;
+    do{
+    cout<<"Digite o primeiro valor:"<<endl;
+    cin>>H;
+    cout<<"Digite o segundo valor:"<<endl;
+    cin>>T;
+    cout<<"Escolha a operacao:\n\n(1)Multiplicacao;\n(2)Adicao;\n(3)Divisao;\n(4)Subtracao;"
+<<endl;
+    
+    cin>>x;
+    switch(x){
+              case 1:
+                   cout<<mult(H,T);
+                   break;
+              case 2:
+                   cout<<soma(H,T);
+                   break;
+              case 3:
+                   cout<<div(H,T);
+                   break;
+              case 4:
+                   cout<<sub(H,T);
+                   break;
+              default:
+                      cout<<"operacao invalida!!!";
+              }
+    }
+    while (x < 5 && x > 0);
+   
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
+
+6.	Gere um programa que imprima os números da sequência de Fibonacci (1, 1, 2, 3, 5, 8...). A quantidade de elementos a ser exibido deverá ser lida pelo teclado. Desenvolva o algoritmo de forma iterativa.
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+//formula f = f(n-1)+ f(n-2)
+
+int fibo(int a){
+
+ int i = 1;
+ 
+ if ( i >= a)         
+      
+      return a;
+      
+ 
+ return fibo(a - 1) + fibo(a - 2);    
+
+}
+
+int main(int argc, char *argv[])
+{ 
+    int a;
+   
+    
+  cout<<"numero: \n";
+  cin>>a;
+  cout<<fibo(a)<<endl;
+
+/////////////////////////////////////////////////////////////////////////////////
+
+  int num, atual, antes, fib; 
+  atual = 1;
+  antes = 1;
+   fib = 0;
+   num= 0; 
+    cout<<"Digite a qtd de numeros a ser sequenciados: "<<endl; 
+    
+        cin>>num;
+        
+          cout<<antes<<" + ";
+          cout<<atual<<" + ";
+    for(int i = 0;i < num-2; i++)
+    {           
+       
+        fib = (antes + atual);
+       
+       cout<<fib<<" + ";                   
+       antes = atual;
+       atual = fib;
+                   
+                        
+     }
+
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
