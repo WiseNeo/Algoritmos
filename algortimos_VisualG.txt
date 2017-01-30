@@ -1,0 +1,420 @@
+1-EQUAÇÃO 2 GRAU
+------------------
+algoritmo "RAIZQUADRADA"
+
+var
+a,b,c: inteiro
+delta,x1,x2: real
+
+inicio
+escrevaL("DETERMINE OS VALORES DE a,b e c, DA EQUAÇÃO aX² + bX + c")
+escreval("----------------------------------------------------------")
+escreval("----------------------------------------------------------")
+escreval("Digite o valor de a:")
+leia (a)
+escreval("Digite o valor de b:")
+leia (b)
+escreval("Digite o valor de c:")
+leia (c)
+delta <- b^2-4*a*c
+se (delta < 0) entao
+   escreval("O delta não pode ser negativo")
+senao
+   x1 <- (-b+delta^1/2)/2*a
+   x2 <- (-b-delta^1/2)/2*a
+   escreval("O valor de x1:",x1)
+   escreval("O valor de x1:",x2)
+fimse
+escreval("----------------------------------------------------------")
+escreval("----------------------------------------------------------")
+escreval("O valor de Delta foi",delta)
+
+
+fimalgoritmo
+
+2-TEMPERATURA
+---------------
+algoritmo "FAHR_CELSIUS"
+// Função :alterar as temperaturas de celsius para fahrenheit e vice versa
+
+var
+f,c,temp:real
+
+inicio
+//formula para transformar de Celsius p/ Fahrenheit => C <-(F-32)/1,8
+//formula para transformar de Fahrenheit p/  Celsius => F <-C*1,8+32
+          Escreval("Digite a tempetarura em Celsius:")
+          leia(temp)
+          f<-temp*1.8+32
+          Escreval("A temperatura em Fahrenheit sera:",f:4:1)
+          Escreval("------------------------------------")
+          Escreval("Digite a tempetarura em Fahrenheit")
+          leia(temp)
+          c<-(temp-32)/1.8
+          Escreval("A temperatura em Celsius sera:",c:3:1)
+          Escreval("------------------------------------")
+fimalgoritmo
+
+3-IMC
+--------------
+algoritmo "Calcular IMC"
+// Função : Solicitar peso e altura do usuario e exibir o seu IMC
+// Seção de Declarações
+var
+peso,altura,imc:real
+inicio
+Escreval("A tabela abaixo mostra a classificação do IMC")
+Escreval("< 16        	Magreza grave")
+Escreval("16 a < 17	Magreza moderada")
+Escreval("17 a < 18,5	Magreza leve")
+Escreval("18,5 a < 25	Saudável")
+Escreval("25 a < 30	Sobrepeso")
+Escreval("30 a < 35	Obesidade Grau I")
+Escreval("35 a < 40	Obesidade Grau II (severa)")
+Escreval("> 40	    Obesidade Grau III (mórbida)")
+Escreval("------------------------------------")
+Escreval("Digite a sua altura em metros: ")
+leia(altura)
+Escreval("Digite o seu peso: ")
+leia(peso)
+imc<- peso/(altura^2)
+Escreval("------------------------------------")
+Escreval("Para seu peso ", peso:4:1,"Kg e sua altura ",altura:3:2,"m o seu IMC e ",imc:5:2)
+Escreval("------------------------------------")
+se imc < 16 entao
+   escreval("Voce está com uma Magreza grave")
+   senao
+   se ((imc >=16) e (imc <17)) entao
+      escreval("Voce esta com uma Magreza moderada")
+      senao
+      se   ((imc >=17) e (imc <18.5)) entao
+           escreval("Voce esta com uma magreza leve")
+           senao
+           se ((imc>=18.5) e (imc<25)) entao
+              escreval("Voce esta Saudavel")
+              senao
+              se ((imc>=25) e (imc<30)) entao
+                 escreval("Voce esta com sobrepeso")
+                 senao
+                 se ((imc>=30) e (imc<35)) entao
+                    escreval("Voce esta com obesidade grau I")
+                    senao
+                    se ((imc>=35) e (imc<40)) entao
+                       escreval("voce esta com obesidade grau II")
+                       senao
+                       escreval("Voce esta com obesidade Morbida")
+                    fimse
+                 fimse
+              fimse
+           fimse
+        fimse
+   fimse
+fimse
+
+fimalgoritmo
+
+4-TRIANGULO
+----------
+algoritmo "Triangulo"
+// Função : verificar o tipo e validar a existencia do triangulo
+var
+l1,l2,l3: inteiro
+
+inicio
+      escreval("Digite o primeiro lado do triangulo")
+      leia(l1)
+      escreval("Digite o segundo lado do triangulo")
+      leia(l2)
+      escreval("Digite o terceiro lado do triangulo")
+      leia(l3)
+      se (l1>l2+l3) ou (l2>l1+l3) ou (l3>l1+l2) entao
+         escreval("Este triangulo não existe")
+         senao
+              se (l1=l2) e (l2=l3) entao
+                 escreval("Este triangulo de lado ",l1," e Equilatero")
+                 senao
+                      se (l1=l2) ou (l2=l3) ou (l1=l3) entao
+                         escreval("Este triangulo e Isosceles")
+                         senao
+                         escreval("Este triagulo e Escaleno")
+                      fimse
+              fimse
+      fimse
+fimalgoritmo
+
+5-CONVERSÃO MOEDA
+-----------------
+algoritmo "conversão monetaria"
+// Função : converter para moeda estrangeira quanto vc tem em Real
+var
+din, dolar, euro, iene, peso, libra: real
+op:inteiro
+inicio
+dolar<- 3.37
+euro<-  3.55
+iene<-  2.30 //não achei
+peso<-  0.21
+libra<- 4.25
+
+
+
+escreval("Digite quanto vc tem em reais: ")
+leia(din)
+escreval("Escolha qual moeda vc pretende converter:")
+escreval("1 - Dolar , 2 - Euro, 3 - Yene, 4 - Peso(arg), 5 - libra, 6 - SAIR")
+leia(op)
+escolha(op)
+caso 1
+   escreval("o valor sera: US$", (din/dolar):6:2)
+caso 2
+   escreval("o valor sera: E$", (din/euro):6:2)
+caso 3
+   escreval("o valor sera: Y$", (din/iene):6:2)
+caso 4
+   escreval("o valor sera: L$", (din/libra):6:2)
+caso 5
+   escreval("o valor sera; p$", (din/peso):6:2)
+outrocaso
+   escreval("Nenhuma moeda selecionada")
+
+fimalgoritmo
+------------------
+7 -MAIOR DE IDADE
+------------------
+algoritmo "SE MAIOR + IDADE "
+// Função :  determinar se a pessoa é maior e mostrar a sua idade
+// Seção de Declarações 
+var
+id, ano, atual: inteiro
+inicio
+atual<- 2016
+escreval("Digite a sua idade")
+leia(id)
+se id < 18 entao
+   escreval("Voce é menor de idade")
+   ano<- atual - id
+   escreval("Voce nasceu em",ano)
+senao
+   escreval("Voce é maior de idade")
+   ano<- atual - id
+   escreval("Voce nasceu em",ano)
+fimse
+fimalgoritmo
+--------------------------------------
+8-APROVADO DE RECUPERAÇAO OU REPROVADO
+---------------------------------------
+algoritmo "MEDIA FINAL"
+// Função : exibir médias
+var
+p1,p2,t:inteiro
+media:real
+inicio
+Escreval("PROVAS E TRABALHO DE 0 A 10")
+Escreval("Digite a nota da p1: ")
+leia(p1)
+escreval("Digite a nota da p2: ")
+leia(p2)
+escreval("Digite a nota de trabalho: ")
+leia(t)
+media<-(p1+p2+t)/3
+Escreval("Sua media foi: ",media:3:2)
+se (media > 6) entao
+   escreval("aprovado")
+   senao
+   se (media < 6) e (media >=5) entao
+      escreval("Voce esta de Recuperacao")
+      senao
+      escreval("REPROVADO")
+   fimse
+fimse
+fimalgoritmo
+--------------------------------------------
+9-SALARIO / AUMENTO /COMISSAO
+------------------------------------------
+algoritmo "salario e comissao"
+// Função : determinar a comissão conforme vendas
+// Seção de Declarações 
+var
+sal, val: inteiro
+nsal:real
+inicio
+Escreval("Digite o valor do seu salario")
+leia(sal)
+escreval("Digite quanto vendeu neste mes")
+leia(val)
+se val < 1000 entao
+   escreval("Voce nao tera comissão")
+   senao
+        se (val >= 1000) e (val < 10000) entao
+        escreval("Sua comissao sera de", sal*0.10)
+        nsal<- sal + sal*0.10
+        senao
+        escreval("Sua comissao sera de", sal*0.20)
+        nsal<- sal + sal*0.20
+        fimse
+fimse
+Escreval("Seu salario com comissao sera de: ", nsal:8:2)
+fimalgoritmo
+----------------------------------------------------
+11-SOMA DE TODOS NUMEROS NUMA REPETIÇÃO, definir MAIOR E MENOR DIGITADO
+algoritmo "somar numeros"
+// Função :somar todos os numeros numa repetiçao
+// Seção de Declarações
+var
+x,loop,soma,num,maior,menor:inteiro
+
+inicio
+//enquanto
+soma<- 0
+Escreval("Quantas volta de ter o looping")
+leia(loop)
+enquanto ( x < loop) faca
+   escreval("Digite um numero: ")
+   leia(num)
+
+
+   se num > maior entao
+      maior<-num
+
+   fimse
+
+   se menor = 0 entao
+      menor<- num
+   
+   	senao
+        		se num < menor 
+		entao
+	  		menor<-num
+        		fimse
+   
+   fimse
+
+   soma<-soma+num
+   x<- x + 1
+fimenquanto
+Escreval("A soma dos numeros foi: ", soma)
+Escreval("O maior dos numeros foi: ", maior)
+Escreval("O menor dos numeros foi: ", menor)
+fimalgoritmo
+----------------------------------------------------
+12-EXIBIR CONTAGEM REGRESSIVA E PROGRESSIVA
+algoritmo "Contagem"
+// Função : exibir uma contagem progressiva e regressiva
+var
+   i :inteiro
+
+
+inicio
+
+    para i<-1 ate 10 passo 1 faca
+         escreval(i)
+    fimpara
+
+    para i<-10 ate 1 passo -1 faca
+         escreval(i)
+    fimpara
+
+fimalgoritmo
+----------------------------------------------------
+13-LISTAR 10 ALUNOS E EXIBIR O MELHOR E O PIOR
+algoritmo "Listagem de melhor e pior aluno"
+// Função : listar 5 alunos suas notas, o melhor e o pior
+var
+
+i,p1,p2:inteiro
+media,maior,menor:real
+ma,pn,aluno:caractere
+
+inicio
+escreval("-------------------------------")
+
+para i<-1 ate 5 faca
+
+   escreval("Digite o nome do aluno ")
+
+   leia(aluno)
+
+   escreval("Digite a nota da p1 do aluno ")
+
+   leia(p1)
+
+   escreval("Digite a nota da p2 do aluno ")
+
+   leia(p2)
+
+   media<-(p1+p2)/2
+
+   se media > maior entao
+      maior<- media
+      ma<-aluno
+   fimse
+
+   se menor = 0 entao
+      menor<-media
+      pn<-aluno
+   senao
+      se media < menor entao
+         menor<- media
+         pn<-aluno
+      fimse
+   fimse
+fimpara
+
+escreval("A melhor nota foi do(a) ", ma,"com a nota",maior:2:1)
+escreval("A pior nota foi do(a) ", pn,"com a nota",menor:2:1)
+
+fimalgoritmo
+---------------------------------------------------
+14- VETOR -LER NUMEROS E EXIBIR QUANTOS POSITIVOS E NEGATIVO, PARES E IMPARES
+algoritmo "usando vetor, positivos, negativos, impares e pares"
+// Função : preencher um vetor de n posições e determinar os positivos, negativos, pares e impares
+var
+impar, par, positivo, neg, i: inteiro
+vet: vetor[1..10] de inteiro
+inicio
+escreval("-------------------------------")
+escreval("Preencha um vetor de x posições")
+escreval("-------------------------------")
+
+impar<-0
+par<-0
+positivo<-0
+neg<-0
+
+para i<-1 ate 10 passo 1 faca
+   escreval("Digite um numero na posição ",i)
+   leia(vet[i])
+   se vet[i] < 0 entao
+      neg<- neg + 1
+   senao
+      positivo<- positivo + 1
+   fimse
+   se vet[i] % 2 = 0 entao
+      par<- par + 1
+   senao
+      impar<- impar + 1
+   fimse
+fimpara
+para i<-1 ate 10 faca
+escreva(vet[i])
+fimpara
+escreval()
+escreval("No vetor vet temos ",neg," Negativos ,", positivo," Positivos ,",par," Pares e",impar," Impares.")
+fimalgoritmo
+---------------------------------------------------
+15-FATORIAL
+algoritmo "FATORIAL"
+// Função :exibir um fatorial
+// Seção de Declarações 
+var
+i, n, fat: inteiro
+inicio
+escreval("Digite  o valor de um numero")
+leia(n)
+fat<- 1
+para i<-n ate 1 passo -1 faca
+     fat<- fat* i
+fimpara
+escreval("O fatorial de ",n,"! é: ",fat)
+fimalgoritmo
+-----------------------------------------------------
